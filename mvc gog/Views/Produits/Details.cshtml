@@ -1,0 +1,119 @@
+﻿@model mvc_gog.Models.Produit
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section class="section hero" id="home" aria-label="home">
+    <div class="container">
+
+        <div class="hero-content">
+
+
+            <h1 class="h1 hero-title">
+                Games don't make you violent, <span class="span"> lag </span> does.
+            </h1>
+
+            <button class="btno btn skewBg">Read More</button>
+
+        </div>
+
+        <figure class="hero-banner img-holder" style="--width: 700; --height: 700;">
+            <img src="~/css/Images/hero-banner.png" width="700" height="700" alt="hero banner" class="w-100">
+        </figure>
+
+    </div>
+</section>
+
+<main>
+    <article>
+        <section class="sectiong featured-games" style="background-color: var(--raisin-black-3);" id="features" aria-label="featured game">
+
+
+
+
+
+
+
+            <div class="cardinfo">
+                <div class="form-items">
+                    <h1 style="text-align:center; color:white">DETAILS</h1>
+                    <hr />
+
+
+
+
+
+
+
+                    <dl class="row">
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.imageurl)
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.imageurl)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.Prodname)
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Prodname)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.Price)
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Price)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.Dateofcreation)
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Dateofcreation)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.desc)
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.desc)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.Autor)
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Autor)
+                        </dd>
+                    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="BTNS">
+
+                        <a asp-action="Delete" asp-route-id="@Model.ProduitID"><input type="button" class="DEL-button" value="Delete"> </a>
+
+                        <a asp-action="Edit" asp-route-id="@Model.ProduitID"><input type="button" class="EDI-button" value="Edit"></a>
+
+                        <a asp-controller="Produits" asp-action="Index"> <input type="button" class="BTL-button" value="Back to List" /></a>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+    </article>
+</main>

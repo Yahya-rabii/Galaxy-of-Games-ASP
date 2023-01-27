@@ -1,0 +1,65 @@
+﻿@model IEnumerable<mvc_gog.Models.LigneBackup>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LignePanierID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PanierID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProduitID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbreArticle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prodname)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LignePanierID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PanierID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProduitID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbreArticle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prodname)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LigneBackupID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LigneBackupID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LigneBackupID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,103 @@
+﻿@model mvc_gog.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<section class="section hero" id="home" aria-label="home">
+    <div class="container">
+
+        <div class="hero-content">
+
+
+            <h1 class="h1 hero-title">
+                Games don't make you violent, <span class="span"> lag </span> does.
+            </h1>
+
+            <button class="btno btn skewBg">Read More</button>
+
+        </div>
+
+        <figure class="hero-banner img-holder" style="--width: 700; --height: 700;">
+            <img src="~/css/Images/hero-banner.png" width="700" height="700" alt="hero banner" class="w-100">
+        </figure>
+
+    </div>
+</section>
+
+<main>
+    <article>
+        <section class="sectiong featured-games" style="background-color: var(--raisin-black-3);" id="features" aria-label="featured game">
+
+
+
+            <div class="frmcontainer">
+                <h1 class="form-header"> Edit games</h1>
+
+
+
+                <form asp-action="Edit" style="color:white">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="UserID" />
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="text-white" style="background-color: transparent; border: 1px solid white" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="text-white" style="background-color: transparent; border: 1px solid white"  value="" placeholder="**********"/>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="text-white" style="background-color: transparent; border: 1px solid white" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="text-white" style="background-color: transparent; border: 1px solid white" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BirthDate" class="control-label"></label>
+                        <input asp-for="BirthDate" class="form-control text-white" style="background-color: transparent; border: 1px solid white" />
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="BTNS">
+
+                        <a asp-route-id="@Model.UserID"> <input type="submit" value="Save" class="SUB-button" /></a>
+                        <a asp-action="Delete" asp-route-id="@Model.UserID">
+                            <input type="button" class="DEL-button"
+                                   value="Delete">
+                        </a>
+
+                        <a asp-action="Index"> <input type="button" class="BTL-button" value="Back to List" /></a>
+
+                    </div>
+                </form>
+            </div>
+
+
+        </section>
+
+    </article>
+</main>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

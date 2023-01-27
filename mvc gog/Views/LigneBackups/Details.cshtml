@@ -1,0 +1,54 @@
+﻿@model mvc_gog.Models.LigneBackup
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>LigneBackup</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LignePanierID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LignePanierID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PanierID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PanierID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProduitID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProduitID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NbreArticle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NbreArticle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prodname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prodname)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.LigneBackupID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

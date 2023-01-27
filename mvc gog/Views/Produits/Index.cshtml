@@ -1,0 +1,152 @@
+﻿@model IEnumerable<mvc_gog.Models.Produit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+            <section class="section hero" id="home" aria-label="home">
+                <div class="container">
+
+                    <div class="hero-content">
+
+
+                        <h1 class="h1 hero-title">
+                            Games don't make you violent, <span class="span"> lag </span> does.
+                        </h1>
+
+                        <button class="btno btn skewBg">Read More</button>
+
+                    </div>
+
+                    <figure class="hero-banner img-holder" style="--width: 700; --height: 700;">
+                        <img src="~/css/Images/hero-banner.png" width="700" height="700" alt="hero banner" class="w-100">
+                    </figure>
+
+                </div>
+            </section>
+
+<main >
+    <article >
+        <section class="sectiong featured-games" style="background-color: var(--raisin-black-3);" id="features" aria-label="featured game">
+
+                    
+
+
+            <div class="datatable-container">
+
+                <h1 class="form-header">games</h1>
+
+                <!-- ======= Header tools ======= -->
+                <div class="header-tools">
+                    <div class="tools">
+                        <ul>
+                            <li>
+
+                            </li>
+                            <li>
+
+                            </li>
+                            <li>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="search">
+                        <input type="search" class="search-input" placeholder="Search..." />
+                    </div>
+                </div>
+
+                <!-- ======= Table ======= -->
+                <table class="datatable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.imageurl)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Prodname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Price)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Dateofcreation)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.desc)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Autor)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.imageurl)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Prodname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Dateofcreation)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.desc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Autor)
+                                </td>
+                                <td>
+                                    <div class="form-button disp BTNS" style="color:white; display: flex; align-items: center;">
+                                        <a asp-action="Edit" asp-route-id="@item.ProduitID">
+                                            <input type="submit" value="Edit"
+                                               class="form-button EDI-button" style="margin-right: 5px;" />
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.ProduitID">
+                                            <input type="button" class="form-button DET-button"
+                                               value="Details" style="margin-right: 5px;">
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.ProduitID">
+                                            <input type="button" class="form-button DEL-button"
+                                               value="Delete" style="margin-right: 5px;">
+                                        </a>
+                                        <form asp-route-id="@item.ProduitID" method="get" asp-action="AddToPanier" style="display:flex
+">
+                                            <input type="submit" value="Add to cart" class="form-button SUB-button" style="margin-right:5px; top:5px">
+                                            <input class="form-control bg-transparent BTL"
+                                               style="width:70px; color :white ; font-size:20px; align-content :center; text-align:center; margin-left:5px;" type="number"
+                                               name="Quantite" placeholder="Quantite" value="1" min="1">
+                                        </form>
+                                    </div>
+                                </td>
+
+
+
+
+                            </tr>
+                        }
+
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+
+
+                    </section>
+   
+</article>
+</main>

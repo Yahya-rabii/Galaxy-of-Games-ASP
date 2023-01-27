@@ -1,0 +1,396 @@
+﻿@model mvc_gog.Models.User
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!-- Content Code -->
+
+@if (User.Identity.IsAuthenticated)
+                    {
+
+
+
+
+
+
+    <!--
+      - #SEARCH BOX
+    -->
+
+    <div class="search-container" data-search-box>
+
+        <div class="input-wrapper">
+            <input type="search" name="search" aria-label="search" placeholder="Search here..." class="search-field">
+
+            <button class="search-submit" aria-label="submit search" data-search-toggler>
+                <ion-icon name="search-outline"></ion-icon>
+            </button>
+
+            <button class="search-close" aria-label="close search" data-search-toggler></button>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <main>
+        <article>
+
+            <!--
+              - #HERO
+            -->
+
+            <section class="section hero" id="home" aria-label="home">
+                <div class="container">
+
+                    <div class="hero-content">
+
+
+                        <h1 class="h1 hero-title">
+                            Games don't make you violent, <span class="span"> lag </span> does.
+                        </h1>
+
+                        <button class="btno btn skewBg">Read More</button>
+
+                    </div>
+
+                    <figure class="hero-banner img-holder" style="--width: 700; --height: 700;">
+                        <img src="~/css/Images/hero-banner.png" width="700" height="700" alt="hero banner" class="w-100">
+                    </figure>
+
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+            <!--
+              - #FEATURED GAME
+            -->
+
+            <section class="section featured-game" id="features" aria-label="featured game">
+                <div class="container">
+
+                    <h2 class="h2 section-title">
+                        discover our
+                        <span class="span">Games</span>
+                    </h2>
+
+                    <ul class="has-scrollbar">
+
+                        <li class="scrollbar-item">
+                            <div class="featured-game-card">
+
+                                <figure class="card-banner img-holder" style="--width: 450; --height: 600;">
+                                    <img src="~/css/Images/featured-game-1.jpg" width="450" height="600" loading="lazy"
+                                     alt="Just for Gamers" class="img-cover">
+                                </figure>
+
+                                <div class="card-content">
+
+                                    <h3 class="h3">
+
+                                        @if (User.IsInRole("user"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="List" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }   @if (User.IsInRole("admin"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="Index" class="card-title" tabindex="-1">
+                                            Just for <span class="span">our Gamers</span>
+                                        </a> 
+                                        
+                                        }
+
+
+                                       
+                                    </h3>
+
+                                    <span class="card-meta">
+                                        <ion-icon name="notifications"></ion-icon>
+
+                                        <span class="span">action games</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="card-content-overlay">
+
+                                    <img src="~/css/Images/featured-game-icon.png" width="36" height="61" loading="lazy" alt=""
+                                     class="card-icon">
+
+                                    <h3 class="h3">
+                                        @if (User.IsInRole("user"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="List" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }   @if (User.IsInRole("admin"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="Index" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }
+
+                                    </h3>
+
+                                    <span class="card-meta">
+                                        <ion-icon name="notifications"></ion-icon>
+
+                                        <span class="span">action games</span>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="scrollbar-item">
+                            <div class="featured-game-card">
+
+                                <figure class="card-banner img-holder" style="--width: 450; --height: 600;">
+                                    <img src="~/css/Images/featured-game-2.jpg" width="450" height="600" loading="lazy"
+                                     alt="Need for Speed" class="img-cover">
+                                </figure>
+
+                                <div class="card-content">
+
+                                    <h3 class="h3">
+
+                                        @if (User.IsInRole("user"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="List" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+                                        }   @if (User.IsInRole("admin"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="Index" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }
+
+                                    </h3>
+
+                                    <span class="card-meta">
+                                        <ion-icon name="notifications"></ion-icon>
+
+                                        <span class="span">speed games</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="card-content-overlay">
+
+                                    <img src="~/css/Images/featured-game-icon.png" width="36" height="61" loading="lazy" alt=""
+                                     class="card-icon">
+
+                                    <h3 class="h3">
+                                        @if (User.IsInRole("user"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="List" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }   @if (User.IsInRole("admin"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="Index" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }
+
+                                    </h3>
+
+                                    <span class="card-meta">
+                                        <ion-icon name="notifications"></ion-icon>
+
+                                        <span class="span">speed games</span>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="scrollbar-item">
+                            <div class="featured-game-card">
+
+                                <figure class="card-banner img-holder" style="--width: 450; --height: 600;">
+                                    <img src="~/css/Images/featured-game-3.jpg" width="450" height="600" loading="lazy"
+                                     alt="Egypt Hunting Gamers" class="img-cover">
+                                </figure>
+
+                                <div class="card-content">
+
+                                    <h3 class="h3">
+                                        @if (User.IsInRole("user"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="List" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }   @if (User.IsInRole("admin"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="Index" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }
+
+                                    </h3>
+
+                                    <span class="card-meta">
+                                        <ion-icon name="notifications"></ion-icon>
+
+                                        <span class="span">historical games</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="card-content-overlay">
+
+                                    <img src="~/css/Images/featured-game-icon.png" width="36" height="61" loading="lazy" alt=""
+                                     class="card-icon">
+
+                                    <h3 class="h3">
+                                        @if (User.IsInRole("user"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="List" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }   @if (User.IsInRole("admin"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="Index" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }
+
+                                    </h3>
+
+                                    <span class="card-meta">
+                                        <ion-icon name="notifications"></ion-icon>
+
+                                        <span class="span">historical games</span>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="scrollbar-item">
+                            <div class="featured-game-card">
+
+                                <figure class="card-banner img-holder" style="--width: 450; --height: 600;">
+                                    <img src="~/css/Images/featured-game-4.jpg" width="450" height="600" loading="lazy"
+                                     alt="Just for Gamers" class="img-cover">
+                                </figure>
+
+                                <div class="card-content">
+
+                                    <h3 class="h3">
+                                        @if (User.IsInRole("user"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="List" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }   @if (User.IsInRole("admin"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="Index" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }
+
+                                    </h3>
+
+                                    <span class="card-meta">
+                                        <ion-icon name="notifications"></ion-icon>
+
+                                        <span class="span">shooting games</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="card-content-overlay">
+
+                                    <img src="~/css/Images/featured-game-icon.png" width="36" height="61" loading="lazy" alt=""
+                                     class="card-icon">
+
+                                    <h3 class="h3">
+                                        @if (User.IsInRole("user"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="List" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }   @if (User.IsInRole("admin"))
+                                        {
+                                            <a asp-area="" asp-controller="Produits" asp-action="Index" class="card-title" tabindex="-1">
+                                                Just for <span class="span">our Gamers</span>
+                                            </a>
+
+                                        }
+
+                                    </h3>
+
+                                    <span class="card-meta">
+                                        <ion-icon name="notifications"></ion-icon>
+
+                                        <span class="span">shooting games</span>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+        </article>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+					}

@@ -1,0 +1,344 @@
+﻿@model CartViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<section class="section hero" id="home" aria-label="home">
+    <div class="container">
+
+        <div class="hero-content">
+
+
+            <h1 class="h1 hero-title">
+                Games don't make you violent, <span class="span"> lag </span> does.
+            </h1>
+
+            <button class="btno btn skewBg">Read More</button>
+
+        </div>
+
+        <figure class="hero-banner img-holder" style="--width: 700; --height: 700;">
+            <img src="~/css/Images/hero-banner.png" width="700" height="700" alt="hero banner" class="w-100">
+        </figure>
+
+    </div>
+</section>
+
+<main>
+    <article>
+        <section class="sectiong featured-games" style="background-color: var(--raisin-black-3);" id="features" aria-label="featured game">
+
+
+
+
+            @if (User.IsInRole("admin"))
+            {
+
+
+
+
+
+                <div class="datatable-container">
+
+                    <h1 class="form-header">games</h1>
+
+                    <!-- ======= Header tools ======= -->
+                    <div class="header-tools">
+                        <div class="tools">
+                            <ul>
+                                <li>
+
+                                </li>
+                                <li>
+
+                                </li>
+                                <li>
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="search">
+                            <input type="search" class="search-input" placeholder="Search..." />
+                        </div>
+                    </div>
+
+                    <!-- ======= Table ======= -->
+                    <table class="datatable">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>User Name</th>
+                                <th></th>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+
+
+
+                            @foreach (var panier in Model.Paniers)
+                            {
+
+                                if (panier.Total > 0)
+                                {
+                                    int x = 0;
+
+                                <td>@panier.User.UserID</td>
+
+                                <td>@panier.User.FirstName @panier.User.LastName </td>
+
+                                    @foreach (var item in Model.LignePaniers)
+                                    {
+                                        if (item != null && item.PanierID == panier.PanierID)
+                                        {
+                                            if (x == 0)
+                                            {
+                                            <td></td>
+                                            <td>@item.produit?.Prodname</td>
+                                            <td>@item.NbreArticle</td>
+                                            <td>@item.Total</td>
+
+
+
+
+
+                                            <td>
+                                                <div class="form-button disp BTNS" style="color:white; display: flex; align-items: center;">
+                                                    <a asp-action="Edit" asp-route-id="@item.LignePanierID">
+                                                        <input type="submit" value="Edit"
+                                       class="form-button EDI-button" style="margin-right: 5px;" />
+                                                    </a>
+                                                    <a asp-action="Details" asp-route-id="@item.LignePanierID">
+                                                        <input type="button" class="form-button DET-button"
+                                       value="Details" style="margin-right: 5px;">
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.LignePanierID">
+                                                        <input type="button" class="form-button DEL-button"
+                                       value="Delete" style="margin-right: 5px;">
+                                                    </a>
+
+                                                </div>
+                                            </td>
+
+
+                                                
+
+                                                x++;
+                                            }
+                                            else
+                                            {
+                                            <tr></tr>
+                                            
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+
+                                                <td>@item.produit?.Prodname</td>
+                                                <td>@item.NbreArticle</td>
+                                                <td>@item.Total</td>
+
+                                                <td>
+                                                    <div class="form-button disp BTNS" style="color:white; display: flex; align-items: center;">
+                                                        <a asp-action="Edit" asp-route-id="@item.LignePanierID">
+                                                            <input type="submit" value="Edit"
+                                           class="form-button EDI-button" style="margin-right: 5px;" />
+                                                        </a>
+                                                        <a asp-action="Details" asp-route-id="@item.LignePanierID">
+                                                            <input type="button" class="form-button DET-button"
+                                           value="Details" style="margin-right: 5px;">
+                                                        </a>
+                                                        <a asp-action="Delete" asp-route-id="@item.LignePanierID">
+                                                            <input type="button" class="form-button DEL-button"
+                                           value="Delete" style="margin-right: 5px;">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+
+                                                
+
+                                                    
+
+                                                </tr>
+
+                                            }
+
+
+                                       
+
+
+                                        }
+
+
+                                        
+
+
+                                              
+
+
+
+                                       
+
+                                    }
+                                    if (Model != null && Model.LigneBackup != null)
+                                    {<tr></tr>
+                                        @foreach (var back in Model.LigneBackup)
+                                        {
+
+                                            if (back.PanierID == panier.PanierID)
+                                            {
+                                                
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>@back.Prodname (remouved)</td>
+                                            <td>@back.NbreArticle  (remouved)</td>
+                                            <td>@back.Total  (remouved)</td>
+                                            <tr></tr>
+                                            }
+                                        }
+
+                                    }
+                                <tr></tr>
+
+
+                                <tr style="border-bottom:hidden">
+
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align:center; border:dashed white;">Total:  @panier.Total</td>
+
+
+                                    <td></td>
+
+                                </tr>
+
+                                <tr style="height: 50px"></tr>
+
+
+                                }
+                            }
+                        
+                        </tbody>
+                    </table>
+                </div>
+
+
+            }
+
+
+            else
+            {
+
+
+                <div class="datatable-container">
+
+                    <h1 class="form-header">games</h1>
+
+                    <!-- ======= Header tools ======= -->
+                    <div class="header-tools">
+                        <div class="tools">
+                            <ul>
+                                <li>
+
+                                </li>
+                                <li>
+
+                                </li>
+                                <li>
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="search">
+                            <input type="search" class="search-input" placeholder="Search..." />
+                        </div>
+                    </div>
+
+                    <!-- ======= Table ======= -->
+                    <table class="datatable">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var panier in Model.Paniers)
+                            {
+
+                                @foreach (var item in Model.LignePaniers)
+                                {
+                                    if (item != null && item.PanierID == panier.PanierID)
+                                    {
+
+                                        <tr>
+                                            <td>@item.produit?.Prodname</td>
+                                            <td>@item.NbreArticle</td>
+                                            <td>@item.Total</td>
+                                            <td>
+                                                <div class="form-button disp BTNS" style="color:white; display: flex; align-items: center;">
+                                                    <a asp-action="Edit" asp-route-id="@item.LignePanierID">
+                                                        <input type="submit" value="Edit"
+                                               class="form-button EDI-button" style="margin-right: 5px;" />
+                                                    </a>
+                                                    <a asp-action="Details" asp-route-id="@item.LignePanierID">
+                                                        <input type="button" class="form-button DET-button"
+                                               value="Details" style="margin-right: 5px;">
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.LignePanierID">
+                                                        <input type="button" class="form-button DEL-button"
+                                               value="Delete" style="margin-right: 5px;">
+                                                    </a>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+                                <tr>
+                                    <td>Total:</td>
+                                    <td></td>
+                                    <td>@panier.Total</td>
+
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+            }
+
+            </section>
+
+    </article>
+</main>
+
+
+
+
+  
+
+

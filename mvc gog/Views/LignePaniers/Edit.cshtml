@@ -1,0 +1,81 @@
+﻿@model mvc_gog.Models.LignePanier
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<section class="section hero" id="home" aria-label="home">
+    <div class="container">
+
+        <div class="hero-content">
+
+
+            <h1 class="h1 hero-title">
+                Games don't make you violent, <span class="span"> lag </span> does.
+            </h1>
+
+            <button class="btno btn skewBg">Read More</button>
+
+        </div>
+
+        <figure class="hero-banner img-holder" style="--width: 700; --height: 700;">
+            <img src="~/css/Images/hero-banner.png" width="700" height="700" alt="hero banner" class="w-100">
+        </figure>
+
+    </div>
+</section>
+
+<main>
+    <article>
+        <section class="sectiong featured-games" style="background-color: var(--raisin-black-3);" id="features" aria-label="featured game">
+
+
+
+            <div class="frmcontainer">
+                <h1 class="form-header"> Edit games</h1>
+
+
+
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="LignePanierID" />
+
+
+                    <div class="form-group">
+                        <input asp-for="NbreArticle" class="form-control" placeholder="Nombre Article" />
+                        <span asp-validation-for="NbreArticle" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="BTNS">
+
+                        <a asp-route-id="@Model.LignePanierID"> <input type="submit" value="Save" class="SUB-button" /></a>
+                        <a asp-action="Delete" asp-route-id="@Model.LignePanierID">
+                            <input type="button" class="DEL-button"
+                                   value="Delete">
+                        </a>
+
+                        <a asp-controller="Paniers" asp-action="Index"> <input type="button" class="BTL-button" value="Back to List" /></a>
+
+                    </div>
+
+                </form>
+
+
+            </div>
+
+
+        </section>
+
+    </article>
+</main>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

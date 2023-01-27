@@ -1,0 +1,143 @@
+﻿@model IEnumerable<mvc_gog.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<section class="section hero" id="home" aria-label="home">
+    <div class="container">
+
+        <div class="hero-content">
+
+
+            <h1 class="h1 hero-title">
+                Games don't make you violent, <span class="span"> lag </span> does.
+            </h1>
+
+            <button class="btno btn skewBg">Read More</button>
+
+        </div>
+
+        <figure class="hero-banner img-holder" style="--width: 700; --height: 700;">
+            <img src="~/css/Images/hero-banner.png" width="700" height="700" alt="hero banner" class="w-100">
+        </figure>
+
+    </div>
+</section>
+
+<main>
+    <article>
+        <section class="sectiong featured-games" style="background-color: var(--raisin-black-3);" id="features" aria-label="featured game">
+
+
+
+
+            <div class="datatable-container">
+
+                <h1 class="form-header">games</h1>
+
+                <!-- ======= Header tools ======= -->
+                <div class="header-tools">
+                    <div class="tools">
+                        <ul>
+                            <li>
+
+                            </li>
+                            <li>
+
+                            </li>
+                            <li>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="search">
+                        <input type="search" class="search-input" placeholder="Search..." />
+                    </div>
+                </div>
+
+                <!-- ======= Table ======= -->
+                <table class="datatable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsAdmin)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BirthDate)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BirthDate)
+                                </td>
+
+                                <td>
+                                    <div class="form-button disp BTNS" style="color:white; display: flex; align-items: center;">
+                                        <a asp-action="Edit" asp-route-id="@item.UserID">
+                                            <input type="submit" value="Edit"
+                                               class="form-button EDI-button" style="margin-right: 5px;" />
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.UserID">
+                                            <input type="button" class="form-button DET-button"
+                                               value="Details" style="margin-right: 5px;">
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.UserID">
+                                            <input type="button" class="form-button DEL-button"
+                                               value="Delete" style="margin-right: 5px;">
+                                        </a>
+
+                                    </div>
+                                </td>
+
+
+
+
+                            </tr>
+                        }
+
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+
+
+        </section>
+
+    </article>
+</main>
