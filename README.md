@@ -1,7 +1,7 @@
 # Galaxy-of-Games E-commerce website &#128722;
 *A full stack academic project using *ASP.Net core 7 with the <b>MVC</b> model* (<b>M</b>odels, <b>V</b>iews, <b>C</b>ontrollers) using an *SQL* server database. 
 </br></br>
-<img style="display: block; margin-left: auto; margin-right: auto; width: 100%" src="https://github.com/Yahya-rabii/Galaxy-of-Games-ASP/blob/master/Untitled.jpg?raw=true">
+<img style="display: block; margin-left: auto; margin-right: auto; width: 100%" src="https://cdn.discordapp.com/attachments/962124453985288342/1068354942852665364/Untitled_1.jpg">
 </br>
 ## &#9881;&#65039;*Installation:
 -Either install the Zip file and extract it. (Opt: using `WinRAR` or `7Zip`)</br></br>
