@@ -25,12 +25,35 @@ namespace mvc_gog.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SearchString)
+
         {
-              return _context.User != null ? 
-                          View(await _context.User.ToListAsync()) :
+
+
+            IQueryable<User> iseriq = from s in _context.User
+                                             select s;
+
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                iseriq = _context.User.Where(s => (s.FirstName + s.LastName).ToLower().Contains(SearchString.ToLower().Trim()));
+            }
+
+            return _context.User != null ?
+                          View(await iseriq.AsNoTracking().ToListAsync()) :
                           Problem("Entity set 'mvc_gogContext.User'  is null.");
+
+         
         }
+
+
+
+
+
+
+
+
+
 
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)

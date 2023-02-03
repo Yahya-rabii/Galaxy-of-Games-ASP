@@ -23,7 +23,7 @@ namespace mvc_gog.Controllers
         }
 
         // GET: Paniers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SearchString)
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
             var registeredUser = _context.User.FirstOrDefault(u => u.UserID == userId);
@@ -34,18 +34,41 @@ namespace mvc_gog.Controllers
                 var paniers= await _context.Panier.Include(p=>p.User).Include(p=>p.LignePanier).ThenInclude(lp=>lp.produit).ToListAsync();
                 var lignepaniers = await _context.LignePanier.Include(lp=>lp.produit).ToListAsync();
                 var lignebackup= await _context.LigneBackup.ToListAsync();
-                
+
 
                 var model = new CartViewModel
                 {
                     Paniers = paniers,
                     LignePaniers = lignepaniers,
-                    LigneBackup= lignebackup
+                    LigneBackup = lignebackup
                 };
-                return View(model);
 
+
+
+
+                if (!string.IsNullOrEmpty(SearchString))
+                {
+                    var serpaniers = await _context.Panier.Include(p => p.User).Include(p => p.LignePanier).ThenInclude(lp => lp.produit).Where(s=>(s.User.FirstName + s.User.LastName).ToLower().Contains(SearchString.ToLower())).ToListAsync();
+
+                    model = new CartViewModel
+                    {
+                        Paniers = serpaniers,
+                        LignePaniers = lignepaniers,
+                        LigneBackup = lignebackup
+                    };
+
+                }
+            
+                   
+                
+
+
+        
+
+                 return View(model);
 
             }
+
 
             else
             {
@@ -65,6 +88,8 @@ namespace mvc_gog.Controllers
 
 
         }
+
+        //search a panier by the user name
 
 
 

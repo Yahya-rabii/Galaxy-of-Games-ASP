@@ -1,0 +1,94 @@
+apt install nginx
+nano /etc/nginx/sites-available/default
+
+add: 
+///////////////////////////////////////////////////////////////////
+
+server {
+server_name gog.rabii.me;
+location / {
+                proxy_pass         http://127.0.0.1:5000;
+                proxy_http_version 1.1;
+                proxy_set_header   Upgrade $http_upgrade;
+                proxy_set_header   Connection keep-alive;
+                proxy_set_header   Host $host;
+                proxy_cache_bypass $http_upgrade;
+                proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header   X-Forwarded-Proto $scheme;
+                proxy_set_header   X-Forwarded-Host gog.rabii.me;
+        }
+}
+
+///////////////////////////////////////////////////////////////////
+
+ netstat -lnp
+ nginx -t
+ 
+
+builder.Services.Configure<ForwardedHeadersOptions>(options => {
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedHost | ForwardedHeaders.XForwardedProto;
+    options.KnownProxies.Add(IPAddress.Parse("127.0.0.1"));  // No Load Balancers just NGINX Reverse Proxy
+    options.ForwardLimit = null;
+});
+
+systemctl restart nginx.service
+
+sudo apt install snapd 
+
+snap  install core  
+
+snap refresh  core  
+
+ snap install --classic certbot  
+   ln -s /snap/bin/certbot /usr/bin/certbot 
+ certbot --nginx
+nano Properties/launchSettings.json
+
+add :
+
+///////////////////////////////////////////////////////////////////
+
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:60106",
+      "sslPort": 44300
+    }
+  },
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7183;http://localhost:5113",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+
+
+///////////////////////////////////////////////////////////////////
+
+bash -c 'nohup dotnet run &>/root/logs.txt & jobs -p %1'
+

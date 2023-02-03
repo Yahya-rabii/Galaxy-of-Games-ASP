@@ -284,5 +284,44 @@
  .card:hover:before {
   background-image: linear-gradient(180deg, rgb(81, 255, 0), purple);
   animation: rotBGimg 3.5s linear infinite;
-} 
+}
+
+
+
+.ordinputbox {
+    display: flex;
+    justify-content: center;
+    position:relative;
+    flex-direction: row;
+    top:100px;
+}
+
+.EDIord-button {
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    BORDER-RADIUS: 10PX;
+    position: relative;
+    min-width: auto;
+    color: white;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.068);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.048);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.192);
+    transition-duration: 0.5s;
+    position: relative;
+    margin-left: 10px;
+}
+
+
+.EDIord-button:hover {
+    background: rgb(229, 255, 0);
+    transition-duration: 0.5s;
+    color: black;
+}
+
+
+
 

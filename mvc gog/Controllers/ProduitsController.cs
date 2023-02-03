@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using mvc_gog.Data;
 using mvc_gog.Models;
@@ -23,21 +24,92 @@ namespace mvc_gog.Controllers
         }
 
         // GET: Produits
-        public async Task<IActionResult> Index()
+
+
+        public async Task<IActionResult> Index(string SearchString, string sortOrder)
         {
-              return _context.Produit != null ? 
-                          View(await _context.Produit.ToListAsync()) :
+
+
+
+            bool x = false;
+
+
+
+
+            IQueryable<Produit> productsiq = from s in _context.Produit
+                                              select s;
+
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+               // productsiq = productsiq.Where(s => s.Prodname.Contains(SearchString));
+                productsiq = _context.Produit.Where(s => s.Prodname.ToLower().Contains(SearchString.ToLower()));
+            }
+
+
+            switch (sortOrder)
+            {
+                case "name":
+                    if (x) { }
+                    productsiq = productsiq.OrderBy(s => s.Prodname);
+                    break;
+                case "authorname":
+                    productsiq = productsiq.OrderBy(s => s.Autor);
+                    break;
+                case "price":
+                    productsiq = productsiq.OrderBy(s => s.Price);
+                    break;
+                default:
+                    productsiq = productsiq.OrderBy(s => s.ProduitID);
+                    break;
+            }
+
+            return _context.Produit != null ? 
+                          View(await productsiq.AsNoTracking().ToListAsync()) :
                           Problem("Entity set 'mvc_gogContext.Produit'  is null.");
         }
 
 
         // GET: Produits but for clients
 
-        public async Task<IActionResult> List()
-        {
+        public async Task<IActionResult> List(string SearchString, string sortOrder)
+        
+            {
+            bool x = false;
+
+
+
+            IQueryable<Produit> productsiq = from s in _context.Produit
+                                             select s;
+
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                // productsiq = productsiq.Where(s => s.Prodname.Contains(SearchString));
+                productsiq = _context.Produit.Where(s => s.Prodname.ToLower().Contains(SearchString.ToLower()));
+            }
+
+
+            switch (sortOrder)
+            {
+                case "name":
+                    if (x) { }
+                    productsiq = productsiq.OrderBy(s => s.Prodname);
+                    break;
+                case "authorname":
+                    productsiq = productsiq.OrderBy(s => s.Autor);
+                    break;
+                case "price":
+                    productsiq = productsiq.OrderBy(s => s.Price);
+                    break;
+                default:
+                    productsiq = productsiq.OrderBy(s => s.ProduitID);
+                    break;
+            }
+
             return _context.Produit != null ?
-                        View(await _context.Produit.ToListAsync()) :
-                        Problem("Entity set 'mvc_gogContext.Produit'  is null.");
+                          View(await productsiq.AsNoTracking().ToListAsync()) :
+                          Problem("Entity set 'mvc_gogContext.Produit'  is null.");
         }
 
 

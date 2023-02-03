@@ -12,12 +12,9 @@
 
 
 
-
-
-
-
     <main>
         <article>
+
 
             <!--
             - #HERO
@@ -51,6 +48,18 @@
                     </figure>
 
                 </div>
+
+
+  
+
+                    <form method="get" asp-action="List">
+            <div class="ordinputbox">
+                <button class="form-button EDIord-button" style="margin-right: 5px;" name="sortOrder" value="name">name</button>
+                    <button class="form-button EDIord-button" style="margin-right: 5px;" name="sortOrder" value="price">price</button>
+                    <button class="form-button EDIord-button" style="margin-right: 5px;" name="sortOrder" value="author">author</button>
+            </div>
+        </form>
+
             </section>
 
 
@@ -59,15 +68,11 @@
 
 
 
-
-
-
+    
 
 
 
 <section class="sectiongame featured-games" id="features" aria-label="featured game">
-
-
 
 
 @foreach (var item in Model)

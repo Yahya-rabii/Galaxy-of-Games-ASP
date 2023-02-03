@@ -409,9 +409,10 @@ body {
 }
 
 .header-actions {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 20px;
+    
 }
 
 .search-btn {
@@ -1980,4 +1981,70 @@ body {
     60% {
         transform: translateY(-15px);
     }
+
+
+
+
+
 }
+
+.sercontainer {
+    position: relative;
+    --size-button: 40px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    color: var(--marigold);
+}
+
+.input {
+    color: var(--marigold);
+    padding-left: var(--size-button);
+    height: var(--size-button);
+    font-size: 15px;
+    border: none;
+
+    outline: none;
+    width: var(--size-button);
+    transition: all ease 0.3s;
+    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+    .input:focus, .input:not(:invalid) {
+        width: 200px;
+        cursor: text;
+        box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+
+    }
+
+        .input:focus + .icon, .input:not(:invalid) + .icon {
+            pointer-events: all;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+        }
+
+.sercontainer .icon {
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    position: absolute;
+    width: var(--size-button);
+    height: var(--size-button);
+    top: 0;
+    left: 0;
+    padding: 6px;
+    pointer-events: none;
+
+}
+
+    .sercontainer .icon svg {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }

@@ -4,6 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
+
+
+
+
+
             <section class="section hero" id="home" aria-label="home">
                 <div class="container">
 
@@ -52,8 +57,19 @@
                         </ul>
                     </div>
 
-                    <div class="search">
-                        <input type="search" class="search-input" placeholder="Search..." />
+
+                   
+
+
+                    <div class="search" >
+
+                        <form method="get" asp-action="Index">
+
+
+                                    <input type="search" id="form1" class="search-input" placeholder="Search..." name="SearchString" style="color:white;" />
+
+                        </form>
+
                     </div>
                 </div>
 
