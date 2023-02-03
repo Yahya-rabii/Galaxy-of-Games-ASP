@@ -1,7 +1,7 @@
 # Galaxy-of-Games E-commerce website &#128722;
 *A full stack academic project using *ASP.Net core 7 with the <b>MVC</b> model* (<b>M</b>odels, <b>V</b>iews, <b>C</b>ontrollers) using an *SQL* server database. 
 </br></br>
-<img style="display: block; margin-left: auto; margin-right: auto; width: 100%" src="https://user-images.githubusercontent.com/93407250/214996684-7a4c27eb-8408-4e8f-963f-35c7bc4ec261.jpg">
+<img style="display: block; margin-left: auto; margin-right: auto; width: 100%" src="https://user-images.githubusercontent.com/93407250/216488470-5003f609-515a-4d28-acc0-fb1d69fffb51.jpg">
 </br>
 ## &#9881;&#65039;*Installation:
 -Either install the Zip file and extract it. (Opt: using `WinRAR` or `7Zip`)</br></br>
@@ -24,7 +24,7 @@ Go to : ```SQL Server Object Explorer -> the (localdb) -> Database -> "mvc_gog.D
 
 ## &#129489;&#8205;&#128187;*Softwares and Programming languages used :
 -C#, HTML5, CSS3, JS. </br>
--SQL Server (with MS SQL Server Management Studio). </br>
+-SQL Server. </br>
 -Visual Studio 2022. </br>
 
 
