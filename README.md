@@ -1,7 +1,7 @@
 # Galaxy-of-Games E-commerce website &#128722;
 *A full stack academic project using *ASP.Net core 7 with the <b>MVC</b> model* (<b>M</b>odels, <b>V</b>iews, <b>C</b>ontrollers) using an *SQL* server database. 
 </br></br>
-<img style="display: block; margin-left: auto; margin-right: auto; width: 100%" src="https://github.com/Yahya-rabii/Galaxy-of-Games-ASP/blob/master/Untitled.jpg?raw=true">
+<img style="display: block; margin-left: auto; margin-right: auto; width: 100%" src="https://user-images.githubusercontent.com/93407250/214996684-7a4c27eb-8408-4e8f-963f-35c7bc4ec261.jpg">
 </br>
 ## &#9881;&#65039;*Installation:
 -Either install the Zip file and extract it. (Opt: using `WinRAR` or `7Zip`)</br></br>
@@ -16,6 +16,7 @@ Go to : ```SQL Server Object Explorer -> the (localdb) -> Database -> "mvc_gog.D
 | --- | --- |
 | ```> ADD-MIGRATION {migrationname}``` | Creates a new Migration for the project which applies changes to the database schema in a consistent and versioned manner. |
 | ```> UPDATE-DATABASE``` | Updates the database so that it's used in the website to store Users, Games/Products, and Carts. |
+
 
 </br>
 
