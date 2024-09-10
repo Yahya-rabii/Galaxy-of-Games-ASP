@@ -8,7 +8,7 @@ using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<mvc_gogContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("mvc_gogContext") ?? throw new InvalidOperationException("Connection string 'mvc_gogContext' not found.")));
+    options.UseMySql(builder.Configuration.GetConnectionString("mvc_gogContext"), new MySqlServerVersion(new Version(8, 0, 21))));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

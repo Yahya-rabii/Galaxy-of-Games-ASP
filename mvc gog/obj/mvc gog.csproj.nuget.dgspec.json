@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yahya\\Desktop\\adv gog\\mvc gog\\mvc gog.csproj": {}
+    "C:\\Users\\yahyarb\\Desktop\\Galaxy-of-Games-ASP\\mvc gog\\mvc gog.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yahya\\Desktop\\adv gog\\mvc gog\\mvc gog.csproj": {
+    "C:\\Users\\yahyarb\\Desktop\\Galaxy-of-Games-ASP\\mvc gog\\mvc gog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yahya\\Desktop\\adv gog\\mvc gog\\mvc gog.csproj",
+        "projectUniqueName": "C:\\Users\\yahyarb\\Desktop\\Galaxy-of-Games-ASP\\mvc gog\\mvc gog.csproj",
         "projectName": "mvc gog",
-        "projectPath": "C:\\Users\\yahya\\Desktop\\adv gog\\mvc gog\\mvc gog.csproj",
-        "packagesPath": "C:\\Users\\yahya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yahya\\Desktop\\adv gog\\mvc gog\\obj\\",
+        "projectPath": "C:\\Users\\yahyarb\\Desktop\\Galaxy-of-Games-ASP\\mvc gog\\mvc gog.csproj",
+        "packagesPath": "C:\\Users\\yahyarb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yahyarb\\Desktop\\Galaxy-of-Games-ASP\\mvc gog\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yahya\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\yahyarb\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,15 +32,20 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "BCrypt.Net": {
+            "BCrypt.Net-Next": {
               "target": "Package",
-              "version": "[0.1.0, )"
+              "version": "[4.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -62,10 +65,6 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.2, )"
-            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -75,6 +74,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Portable.BouncyCastle": {
               "target": "Package",
@@ -100,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

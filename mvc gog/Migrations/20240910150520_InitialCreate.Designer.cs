@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mvc_gog.Data;
@@ -12,8 +11,8 @@ using mvc_gog.Data;
 namespace mvcgog.Migrations
 {
     [DbContext(typeof(mvc_gogContext))]
-    [Migration("20230127195347_Init")]
-    partial class Init
+    [Migration("20240910150520_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,17 +20,13 @@ namespace mvcgog.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.2")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("mvc_gog.Models.LigneBackup", b =>
                 {
                     b.Property<int>("LigneBackupID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LigneBackupID"));
 
                     b.Property<int>("LignePanierID")
                         .HasColumnType("int");
@@ -43,13 +38,13 @@ namespace mvcgog.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Prodname")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("ProduitID")
                         .HasColumnType("int");
 
                     b.Property<double>("Total")
-                        .HasColumnType("float");
+                        .HasColumnType("double");
 
                     b.HasKey("LigneBackupID");
 
@@ -62,8 +57,6 @@ namespace mvcgog.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LignePanierID"));
-
                     b.Property<int>("NbreArticle")
                         .HasColumnType("int");
 
@@ -74,7 +67,7 @@ namespace mvcgog.Migrations
                         .HasColumnType("int");
 
                     b.Property<double>("Total")
-                        .HasColumnType("float");
+                        .HasColumnType("double");
 
                     b.HasKey("LignePanierID");
 
@@ -91,13 +84,11 @@ namespace mvcgog.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PanierID"));
-
                     b.Property<int>("NbreArticle")
                         .HasColumnType("int");
 
                     b.Property<double>("Total")
-                        .HasColumnType("float");
+                        .HasColumnType("double");
 
                     b.Property<int?>("UserID")
                         .HasColumnType("int");
@@ -115,28 +106,26 @@ namespace mvcgog.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProduitID"));
-
                     b.Property<string>("Autor")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("Dateofcreation")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("PanierID")
                         .HasColumnType("int");
 
                     b.Property<float>("Price")
-                        .HasColumnType("real");
+                        .HasColumnType("float");
 
                     b.Property<string>("Prodname")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("desc")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("imageurl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("ProduitID");
 
@@ -149,33 +138,31 @@ namespace mvcgog.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
-
                     b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<bool>("IsAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("UserID");
 
